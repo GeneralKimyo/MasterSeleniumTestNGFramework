@@ -1,0 +1,9 @@
+[
+  {
+    "id": "0",
+  "paymentMethod": "Direct bank transfer"
+  },
+  { "id": "1",
+    "paymentMethod": "Cash on delivery"
+  }
+]

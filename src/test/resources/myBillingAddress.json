@@ -1,0 +1,58 @@
+[
+  {
+  "billingId": "1",
+  "firstName": "demo",
+  "lastName": "user",
+  "country": "Philippines",
+  "addressLineOne" : "1",
+  "city": "Vigan",
+  "state": "Ilocos Sur",
+  "postalCode": "2700",
+  "email": "demouser@askomdch.com",
+  "company": "TDC",
+  "phone": "12345678901",
+  "usRegion":false
+},
+  {
+    "billingId": "2",
+    "firstName": "demo",
+    "lastName": "user",
+    "country": "United States (US)",
+    "addressLineOne" : "1",
+    "city": "San Francisco",
+    "state": "California",
+    "postalCode": "94118",
+    "email": "demouser@askomdch.com",
+    "company": "TDC",
+    "phone": "12345678901",
+    "usRegion":true
+  },
+  {
+    "billingId": "3",
+    "firstName": "demo",
+    "lastName": "user",
+    "country": "United States (US)",
+    "addressLineOne" : "1",
+    "city": "Houston",
+    "state": "Texas",
+    "postalCode": "77001",
+    "email": "demouser@askomdch.com",
+    "company": "TDC",
+    "phone": "12345678901",
+    "usRegion":true
+  },
+  {
+    "billingId": "4",
+    "firstName": "demo",
+    "lastName": "user",
+    "country": "United States (US)",
+    "addressLineOne" : "1",
+    "city": "Miami",
+    "state": "Florida",
+    "postalCode": "33101",
+    "email": "demouser@askomdch.com",
+    "company": "TDC",
+    "phone": "12345678901",
+    "usRegion":true
+  }
+]

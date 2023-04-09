@@ -1,0 +1,32 @@
+[
+  {
+    "couponCode": "freeship",
+    "usRegion": true,
+    "discount": 5.00
+  },
+  {
+    "couponCode": "offcart5",
+    "usRegion": true,
+    "discount": 5.00
+  },
+  {
+    "couponCode": "off25",
+    "usRegion": true,
+    "discount": 0.25
+  },
+  {
+    "couponCode": "freeship",
+    "usRegion": false,
+    "discount": 10.00
+  },
+  {
+    "couponCode": "offcart5",
+    "usRegion": false,
+    "discount": 5.00
+  },
+  {
+    "couponCode": "off25",
+    "usRegion": false,
+    "discount": 0.25
+  }
+]
