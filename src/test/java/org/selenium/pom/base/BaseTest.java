@@ -53,14 +53,14 @@ public class BaseTest {
         //setDriver(DriverManagerFactoryAbstract.getManager(DriverType.valueOf(browser)).getDriver());
         setDriver(DriverManagerFactoryAbstract.getManager(DriverType.valueOf(browser)));
         setDriver(getDriverManager().getDriver());
-        System.out.println("Current Thread: " +Thread.currentThread().threadId()+", Driver: " + getDriver());
+        System.out.println("Current Thread: " +Thread.currentThread().getId()+", Driver: " + getDriver());
         //System.out.println("Current Thread: " +Thread.currentThread().threadId()+", Driver: " + getDriverManager());
     }
     @Parameters("browser")
     @AfterMethod
     public synchronized void quitDriver(@Optional String browser , ITestResult result) throws InterruptedException, IOException {
         Thread.sleep(3000);
-        System.out.println("Current Thread: " +Thread.currentThread().threadId()+", Driver: " + getDriver());if (browser== null) browser="CHROME";
+        System.out.println("Current Thread: " +Thread.currentThread().getId()+", Driver: " + getDriver());if (browser== null) browser="CHROME";
         if (result.getStatus()== ITestResult.FAILURE){
             File destFile = new File("src"+ File.separator + browser + File.separator+
                     result.getTestClass().getRealClass().getSimpleName()+"_"+

@@ -6,12 +6,8 @@ import io.restassured.http.Headers;
 import io.restassured.response.Response;
 import org.selenium.pom.api.ApiRequest;
 import org.selenium.pom.constants.EndPoint;
-import org.selenium.utils.ConfigLoader;
 
 import java.util.HashMap;
-
-import static io.restassured.RestAssured.form;
-import static io.restassured.RestAssured.given;
 
 public class CartApi {
     private Cookies cookies;
