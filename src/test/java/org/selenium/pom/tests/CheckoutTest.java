@@ -18,8 +18,7 @@ import java.io.IOException;
 public class CheckoutTest extends BaseTest {
     @Test
     public void guestCheckoutUsingDirectBankTransfer() throws IOException {
-        BillingAddress billingAddress = JacksonUtils.
-                deserializeJson("myBillingAddress.json", BillingAddress.class);
+        BillingAddress billingAddress = new BillingAddress(1);
         CheckoutPage checkoutPage= new CheckoutPage(getDriver()).
                 load();
         CartApi cartApi= new CartApi();
@@ -35,8 +34,7 @@ public class CheckoutTest extends BaseTest {
     }
     @Test
     public void loginAndCheckoutUsingDirectBankTransfer() throws IOException {
-        BillingAddress billingAddress = JacksonUtils.
-                deserializeJson("myBillingAddress.json", BillingAddress.class);
+        BillingAddress billingAddress = new BillingAddress(1);
         String username = "demouser" +new FakerUtils().generateRandomNumber();
         User user= new User(username,username + "@askomdch.com","demopw");
 
@@ -58,8 +56,7 @@ public class CheckoutTest extends BaseTest {
     }
     @Test
     public void guestCheckoutUsingCashOnDelivery() throws Exception {
-        BillingAddress billingAddress = JacksonUtils.
-                deserializeJson("myBillingAddress.json", BillingAddress.class);
+        BillingAddress billingAddress = new BillingAddress(1);
         CheckoutPage checkoutPage= new CheckoutPage(getDriver()).
                 load();
         CartApi cartApi= new CartApi();
@@ -75,8 +72,7 @@ public class CheckoutTest extends BaseTest {
     }
     @Test
     public void loginAndCheckoutUsingCashOnDelivery() throws Exception {
-        BillingAddress billingAddress = JacksonUtils.
-                deserializeJson("myBillingAddress.json", BillingAddress.class);
+        BillingAddress billingAddress = new BillingAddress(1);
         String username = "demouser" +new FakerUtils().generateRandomNumber();
         User user= new User(username,username + "@askomdch.com","demopw");
 
