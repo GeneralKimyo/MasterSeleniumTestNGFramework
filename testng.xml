@@ -20,7 +20,7 @@
         <classes>
             <class name="org.selenium.pom.tests.ViewOrderTest">
                 <methods>
-                    <include name="viewOrdersFromAccountPage"/>
+                    <include name="shouldBeAbleToViewOrdersFromAccountPage"/>
                 </methods>
             </class>
         </classes>
