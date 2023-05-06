@@ -53,5 +53,6 @@ public class TestRailClient {
             case "fail" -> 5;
             default -> 6;
         };
+
     }
 }
