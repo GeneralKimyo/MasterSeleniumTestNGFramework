@@ -1,6 +1,6 @@
 package org.selenium.pom.dataproviders;
 
-import org.selenium.pom.base.BaseTest;
+import org.selenium.pom.stepDefinitions.Hooks;
 import org.selenium.pom.objects.BillingAddress;
 import org.selenium.pom.objects.Coupon;
 import org.selenium.pom.objects.Product;
@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class MyDataProvider extends BaseTest {
+public class MyDataProvider extends Hooks {
 
 
     @DataProvider(parallel = true)

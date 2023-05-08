@@ -14,7 +14,7 @@ import org.testng.annotations.Test;
 
 import java.io.IOException;
 
-@Epic("Askomdch.com Oauth 2.0")
+@Epic("Askomdch.com")
 @Feature("SignUp Api")
 public class LogInTest extends BaseTest {
     @Test

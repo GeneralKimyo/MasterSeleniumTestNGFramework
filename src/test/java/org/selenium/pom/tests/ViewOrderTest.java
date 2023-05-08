@@ -1,8 +1,6 @@
 package org.selenium.pom.tests;
 
-import io.restassured.http.Cookies;
 import org.selenium.pom.api.actions.CartApi;
-import org.selenium.pom.api.actions.CheckOutApi;
 import org.selenium.pom.api.actions.OrderApi;
 import org.selenium.pom.api.actions.SignUpApi;
 import org.selenium.pom.base.BaseTest;
@@ -11,7 +9,6 @@ import org.selenium.pom.objects.Product;
 import org.selenium.pom.objects.User;
 import org.selenium.pom.pages.AccountPage;
 import org.selenium.utils.FakerUtils;
-import org.selenium.utils.JacksonUtils;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 

@@ -6,8 +6,8 @@ import io.restassured.response.Response;
 import org.selenium.utils.ConfigLoader;
 import java.util.HashMap;
 
-
 import static io.restassured.RestAssured.given;
+
 
 public class ApiRequest extends SpecBuilder {
 

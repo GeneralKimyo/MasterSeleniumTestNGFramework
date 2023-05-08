@@ -33,7 +33,7 @@ public class ConfigLoader {
     private String getProperty(String property){
         String prop = properties.getProperty(property);
         if(prop != null) return prop;
-        else throw new RuntimeException("property" + property+ "is not specified in the stg_config.properties file");
+        else throw new RuntimeException("property" + property+ "is not specified in the "+properties+" file");
     }
     public String getBaseUrl(){
         return getProperty("baseUrl");

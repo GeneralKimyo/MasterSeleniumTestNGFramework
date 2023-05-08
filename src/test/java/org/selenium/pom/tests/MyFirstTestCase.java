@@ -9,9 +9,7 @@ import org.selenium.pom.pages.CheckoutPage;
 import org.selenium.pom.pages.Homepage;
 import org.selenium.pom.pages.StorePage;
 import org.selenium.utils.ConfigLoader;
-import org.selenium.utils.JacksonUtils;
 import org.testng.Assert;
-import org.testng.annotations.Test;
 
 import java.io.IOException;
 

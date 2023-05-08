@@ -2,7 +2,6 @@ package org.selenium.pom.tests;
 
 import org.selenium.pom.api.actions.CartApi;
 import org.selenium.pom.api.actions.ShippingApi;
-import org.selenium.pom.api.actions.SignUpApi;
 import org.selenium.pom.base.BaseTest;
 import org.selenium.pom.dataproviders.MyDataProvider;
 import org.selenium.pom.objects.Coupon;
@@ -12,8 +11,6 @@ import org.selenium.pom.pages.CartPage;
 import org.selenium.utils.JacksonUtils;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-
-import java.io.IOException;
 
 public class CouponTest extends BaseTest {
     @Test(dataProvider = "addCouponCodeForNonUSRegion", dataProviderClass = MyDataProvider.class)

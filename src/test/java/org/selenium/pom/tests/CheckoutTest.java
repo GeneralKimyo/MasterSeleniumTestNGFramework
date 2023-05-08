@@ -9,7 +9,6 @@ import org.selenium.pom.objects.Product;
 import org.selenium.pom.objects.User;
 import org.selenium.pom.pages.CheckoutPage;
 import org.selenium.utils.FakerUtils;
-import org.selenium.utils.JacksonUtils;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
