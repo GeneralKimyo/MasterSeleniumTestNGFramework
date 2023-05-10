@@ -15,7 +15,7 @@
         </packages>
     </test>-->
 
-    <!--<test name="CHROME" parallel="methods" thread-count="5" >
+    <test name="CHROME" parallel="methods" thread-count="5" >
         <parameter name="browser" value="CHROME"></parameter>
         <classes>
             <class name="org.selenium.pom.tests.ViewOrderTest">
@@ -24,7 +24,7 @@
                 </methods>
             </class>
         </classes>
-    </test>-->
+    </test>
 
     <test name="CHROME2" parallel="methods" thread-count="5" >
         <parameter name="browser" value="CHROME"></parameter>
