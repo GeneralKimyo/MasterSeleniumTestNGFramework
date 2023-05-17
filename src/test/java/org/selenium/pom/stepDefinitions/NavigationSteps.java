@@ -13,8 +13,8 @@ import org.testng.Assert;
 public class NavigationSteps{
 
     WebDriver driver;
-    public NavigationSteps(Hooks baseTest){
-        this.driver = baseTest.getDriver();
+    public NavigationSteps(Hooks hooks){
+        this.driver = hooks.getDriver();
     }
     @Given("I am on the home page")
     public void i_am_on_the_home_page(){
