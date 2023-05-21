@@ -11,10 +11,10 @@ public class ChromeDriverManager implements DriverManager {
     public WebDriver createDriver() {
         WebDriverManager.chromedriver().cachePath("Drivers").setup();
         //bypass
-        ChromeOptions options =  new ChromeOptions();
-        options.addArguments("--remote-allow-origins=*");
+        //ChromeOptions options =  new ChromeOptions();
+        //options.addArguments("--remote-allow-origins=*");
 
-        WebDriver driver = new ChromeDriver(options);
+        WebDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
         return driver;
     }

@@ -1,5 +1,6 @@
 package org.selenium.pom.api.actions;
 
+import io.qameta.allure.Step;
 import io.restassured.http.Cookies;
 import io.restassured.http.Header;
 import io.restassured.http.Headers;
@@ -21,6 +22,7 @@ public class CartApi {
         return cookies;
     }
 
+    @Step("Injecting product cookies to cart using Cart API")
     public Response addToCart(int productId, int quantity){
         Header header =  new Header("content-type","application/x-www-form-urlencoded");
         Headers headers =  new Headers(header);

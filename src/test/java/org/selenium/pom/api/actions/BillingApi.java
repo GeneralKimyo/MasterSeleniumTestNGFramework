@@ -1,5 +1,6 @@
 package org.selenium.pom.api.actions;
 
+import io.qameta.allure.Step;
 import io.restassured.http.Cookies;
 import io.restassured.http.Header;
 import io.restassured.http.Headers;
@@ -27,6 +28,7 @@ public class BillingApi {
         return cookies;
     }
 
+    @Step("Injecting billing address cookies using Billing API")
     public Response addBillingAddress(BillingAddress billingAddress)
     {
         Header header = new Header("content-type","application/x-www-form-urlencoded");

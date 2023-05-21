@@ -8,12 +8,12 @@
         </packages>
     </test>
 
-    <test name="FIREFOX"  parallel="methods" thread-count="5" >
+    <!--<test name="FIREFOX"  parallel="methods" thread-count="5" >
         <parameter name="browser" value="FIREFOX"></parameter>
         <packages>
             <package name="org.selenium.pom.tests" />
         </packages>
-    </test>
+    </test>-->
 
     <!--<test name="FIREFOX" parallel="methods" thread-count="5"  >
         <parameter name="browser" value="FIREFOX"></parameter>
@@ -24,11 +24,22 @@
                 </methods>
             </class>
         </classes>
-    </test>
-    <test name="CHROME" parallel="methods" thread-count="5" >
-        <parameter name="browser" value="CHROME"></parameter>
+    </test>-->
+
+
+    <!--<test name="TEST" parallel="methods" thread-count="5"  >
+        <parameter name="browser" value="FIREFOX"></parameter>
         <classes>
-            <class name="org.selenium.pom.runners.NavigationTest" />
+            <class name="org.selenium.pom.tests.LogInTest">
+                <methods>
+                    <include name="shouldNotLogInWithNonExistingUserName"/>
+                </methods>
+            </class>
+            <class name="org.selenium.pom.tests.TaxRateTest">
+                <methods>
+                    <include name="validateTaxRateInUS"/>
+                </methods>
+            </class>
         </classes>
     </test>-->
 

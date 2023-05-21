@@ -1,5 +1,6 @@
 package org.selenium.pom.pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.selenium.pom.base.BasePage;
@@ -10,6 +11,8 @@ import org.selenium.pom.pages.components.Computation;
 import org.selenium.pom.pages.components.MyOverlay;
 import org.selenium.pom.pages.components.MySelect;
 import org.selenium.pom.pages.components.OrderReview;
+
+import java.util.List;
 
 
 public class CheckoutPage extends BasePage {
@@ -41,7 +44,7 @@ public class CheckoutPage extends BasePage {
     private final By createAccountUserNameFld =  By.cssSelector("#account_username");
     private final By createAccountPasswordFld = By.cssSelector("#account_password");
     private final By errorTxt = By.xpath("//ul[@class='woocommerce-error']/child::li");
-    private final By productName = By.cssSelector("td[class='product-name']");
+    private final By productName = By.cssSelector("td[class='product-name']>a");
     private MySelect mySelect;
     private OrderReview orderReview;
     private MyOverlay myOverlay;
@@ -79,24 +82,27 @@ public class CheckoutPage extends BasePage {
         orderReview =  new OrderReview(driver);
         computation =  new Computation(driver);
     }
-
+    @Step("I'm on checkout page")
     public CheckoutPage load(){
         load(EndPoint.CHECKOUT.url);
         return this;
     }
+    @Step("I clicked the log in link")
     public CheckoutPage clickHereToLogInLink(){
         wait.until(ExpectedConditions.elementToBeClickable(clickHereToLogInLink)).click();
         return this;
     }
-
+    @Step("I entered a username")
     public CheckoutPage enterUserName(String username) {
         wait.until(ExpectedConditions.visibilityOfElementLocated(usernameFld)).sendKeys(username);
         return this;
     }
+    @Step("I entered a password")
     public CheckoutPage enterPassword(String password) {
         wait.until(ExpectedConditions.visibilityOfElementLocated(passwordFld)).sendKeys(password);
         return this;
     }
+    @Step("I clicked the log in button")
     public CheckoutPage clickLogInBtn() {
         wait.until(ExpectedConditions.elementToBeClickable(loginBtn)).click();
         return this;
@@ -111,16 +117,19 @@ public class CheckoutPage extends BasePage {
         clickLogInBtn().waitForLogInBtnToDisappear();
         return this;
     }
+    @Step("I entered first name")
     public CheckoutPage enterFirstName(String firstName){
-        driver.findElement(firstNameFld).clear();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(firstNameFld)).clear();
         driver.findElement(firstNameFld).sendKeys(firstName);
         return this;
     }
+    @Step("I entered last name")
     public CheckoutPage enterLastName(String lastName){
-        driver.findElement(lastNameFld).clear();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(lastNameFld)).clear();
         driver.findElement(lastNameFld).sendKeys(lastName);
         return this;
     }
+    @Step("I selected country")
     public CheckoutPage selectCountry(String countryName){
         //Select select = new Select(driver.findElement(countryDropDown));
         //select.selectByVisibleText(countryName);
@@ -134,16 +143,19 @@ public class CheckoutPage extends BasePage {
         element.click();
         return this;
     }
+    @Step("I entered address line one")
     public CheckoutPage enterAddressLineOne (String addressOne){
-        driver.findElement(addressLineOneFLd).clear();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(addressLineOneFLd)).clear();
         driver.findElement(addressLineOneFLd).sendKeys(addressOne);
         return this;
     }
+    @Step("I entered city")
     public CheckoutPage enterCity(String City){
-        driver.findElement(billingCityFld).clear();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(billingCityFld)).clear();
         driver.findElement(billingCityFld).sendKeys(City);
         return this;
     }
+    @Step("I selected state")
     public CheckoutPage selectState(String stateName){
         //Select select = new Select(driver.findElement(stateDropDown));
         //select.selectByVisibleText(stateName);
@@ -156,13 +168,15 @@ public class CheckoutPage extends BasePage {
         element.click();
         return this;
     }
+    @Step("I entered postal code")
     public CheckoutPage enterPostCode(String PostCode){
-        driver.findElement(billingPostCodeFld).clear();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(billingPostCodeFld)).clear();
         driver.findElement(billingPostCodeFld).sendKeys(PostCode);
         return this;
     }
+    @Step("I entered email")
     public CheckoutPage enterEmail(String Email){
-        driver.findElement(billingEmailFld).clear();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(billingEmailFld)).clear();
         driver.findElement(billingEmailFld).sendKeys(Email);
         return this;
     }
@@ -198,11 +212,10 @@ public class CheckoutPage extends BasePage {
     }
 
     public CheckoutPage selectCashOnDelivery() {
-        waitForOverlaysToDisappear(myOverlay.getOverlay());
-        WebElement e = wait.until(ExpectedConditions.elementToBeClickable(cashOnDeliveryRadioBtn));
-        if(!e.isSelected()){
-            e.click();
-        }
+        //waitForOverlaysToDisappear(By.cssSelector(".blockUI.blockOverlay"));
+        JavascriptExecutor je = (JavascriptExecutor) driver;
+        WebElement codBtn = wait.until(ExpectedConditions.visibilityOfElementLocated(cashOnDeliveryRadioBtn));
+        je.executeScript("arguments[0].click();", codBtn);
         return this;
     }
 
@@ -246,7 +259,7 @@ public class CheckoutPage extends BasePage {
         i--;
         }
         throw new Exception("Element not found");*/
-        return wait.until(ExpectedConditions.visibilityOfElementLocated(productName)).getText();
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//td[@class='product-name'])[1]"))).getText();
     }
 
 }

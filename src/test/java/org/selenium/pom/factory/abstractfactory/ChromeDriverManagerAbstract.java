@@ -12,10 +12,10 @@ public class ChromeDriverManagerAbstract extends DriverManagerAbstract {
     protected void startDriver() {
         WebDriverManager.chromedriver().cachePath("Drivers").setup();
         //bypass
-        ChromeOptions options =  new ChromeOptions();
-        options.addArguments("--remote-allow-origins=*");
+        //ChromeOptions options =  new ChromeOptions();
+        //options.addArguments("--remote-allow-origins=*");
 
-        driver = new ChromeDriver(options);
+        driver = new ChromeDriver();
         driver.manage().window().maximize();
     }
 }

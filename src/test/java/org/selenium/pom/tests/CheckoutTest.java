@@ -114,7 +114,7 @@ public class CheckoutTest extends BaseTest {
                 "Thank you. Your order has been received.");
     }
     @Test
-    public void checkoutWithAnAccountHavingBillingAddress() throws IOException, InterruptedException {
+    public void checkoutWithAnAccountHavingBillingAddress() throws IOException {
         BillingAddress billingAddress = new BillingAddress(1);
         String username = "demouser" +new FakerUtils().generateRandomNumber();
         User user= new User(username,username + "@askomdch.com","demopw");
@@ -131,8 +131,8 @@ public class CheckoutTest extends BaseTest {
                 load();
         injectCookiesToBrowser(signUpApi.getCookies());
         checkoutPage.
-                load().
-                selectCashOnDelivery().
+                load();
+        checkoutPage.selectCashOnDelivery().
                 placeOrder();
         Assert.assertEquals(checkoutPage.getNotice(),
                 "Thank you. Your order has been received.");

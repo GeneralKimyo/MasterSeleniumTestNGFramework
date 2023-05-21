@@ -1,5 +1,6 @@
 package org.selenium.pom.pages;
 
+import io.qameta.allure.Step;
 import org.codehaus.groovy.runtime.StringGroovyMethods;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -31,17 +32,26 @@ public class AccountPage extends BasePage {
     public String getLoginTitle() {
         return wait.until(ExpectedConditions.visibilityOfElementLocated(loginTitle)).getText();
     }
+    @Step("I entered a username")
     public AccountPage enterUserName(String userName){
         wait.until(ExpectedConditions.visibilityOfElementLocated(userNameFld)).sendKeys(userName);
         return this;
     }
+    @Step("I entered a password")
     public AccountPage enterPassword(String password){
         wait.until(ExpectedConditions.visibilityOfElementLocated(passwordFld)).sendKeys(password);
         return this;
     }
-    public AccountPage login(String userName , String password){
-        enterUserName(userName).enterPassword(password);
+    @Step("I clicked log in")
+    public AccountPage clickLoginBtn(){
         wait.until(ExpectedConditions.elementToBeClickable(loginBtn)).click();
+        return this;
+    }
+
+    public AccountPage login(String userName , String password){
+        enterUserName(userName).
+                enterPassword(password).
+                clickLoginBtn();
         return this;
     }
     public String errorMessage(){

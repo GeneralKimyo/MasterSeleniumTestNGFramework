@@ -51,7 +51,7 @@ public class CartPage extends BasePage {
 
     //private final By productName = By.cssSelector("td[class='product-name'] a");
     //private final By checkOutBtn = By.cssSelector(".checkout-button");
-    @FindBy(css = "td[class='product-name'] a") private WebElement productName;
+    @FindBy(css = "td[class='product-name']> a") private WebElement productName;
     @FindBy(css = ".checkout-button") private WebElement checkOutBtn;
 
     private final By couponCodeFld =  By.cssSelector("#coupon_code");

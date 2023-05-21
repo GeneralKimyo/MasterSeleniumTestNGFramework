@@ -1,5 +1,6 @@
 package org.selenium.pom.base;
 
+import io.qameta.allure.Attachment;
 import io.restassured.http.Cookies;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.Cookie;
@@ -52,7 +53,7 @@ public class BaseTest {
     }
 
 
-    private void setDriver(DriverManagerAbstract driverManager){
+    private void setDriverManager(DriverManagerAbstract driverManager){
         this.driverManager.set(driverManager);
     }
     public DriverManagerAbstract getDriverManager() {
@@ -74,15 +75,15 @@ public class BaseTest {
     public WebDriver getDriver() {
         return this.driver.get();
     }
-
+    @Parameters("browser")
     @BeforeMethod
-    public void before(@Optional String browser){
+    public synchronized void startDriver(@Optional String browser){
         browser = System.getProperty("browser");
-        if (browser==null) browser="CHROME";
+        if (browser==null) browser="FIREFOX";
         //setDriver2(new DriverManagerOriginal().initializeDriver(browser));
         //setDriver(DriverManagerFactory.getManager(DriverType.valueOf(browser)).createrDriver());
         //setDriver(DriverManagerFactoryAbstract.getManager(DriverType.valueOf(browser)).getDriver());
-        setDriver(DriverManagerFactoryAbstract.getManager(DriverType.valueOf(browser)));
+        setDriverManager(DriverManagerFactoryAbstract.getManager(DriverType.valueOf(browser)));
         setDriver(getDriverManager().getDriver());
         System.out.println("Current Thread: " +Thread.currentThread().getId()+", Driver: " + getDriver());
         //System.out.println("Current Thread: " +Thread.currentThread().threadId()+", Driver: " + getDriverManager());
@@ -93,14 +94,14 @@ public class BaseTest {
     public synchronized void quitDriver(@Optional String browser, ITestResult result, Method method) throws Exception {
         Thread.sleep(3000);
         System.out.println("Current Thread: " +Thread.currentThread().getId()+", Driver: " + getDriver());
-        browser = System.getProperty("browser");
-        if (browser==null) browser="CHROME";
+        //browser = System.getProperty("browser");
+        if (browser==null) browser="FIREFOX";
         if (result.getStatus()== ITestResult.SUCCESS){setStatus("pass");}
         if (result.getStatus()== ITestResult.FAILURE){
         File destFile = new File("src"+ File.separator + browser + File.separator+
         result.getTestClass().getRealClass().getSimpleName()+"_"+
         result.getMethod().getMethodName()+".png");
-        takeScreenshot(destFile);
+        //takeScreenshot(destFile);
         takeScreenshotUsingAshot(destFile);
          setStatus("fail");
         }
@@ -113,6 +114,7 @@ public class BaseTest {
         File srcFile = takesScreenshot.getScreenshotAs(OutputType.FILE);
         FileUtils.copyFile(srcFile,destFile);
     }
+    @Attachment
     public void takeScreenshotUsingAshot(File destFile){
         Screenshot screenshot = new AShot().
                 shootingStrategy(ShootingStrategies.viewportPasting(100)).
