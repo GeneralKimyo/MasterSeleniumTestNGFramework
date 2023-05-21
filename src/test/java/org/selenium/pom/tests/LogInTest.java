@@ -14,9 +14,15 @@ import org.testng.annotations.Test;
 
 import java.io.IOException;
 
-@Epic("Askomdch.com")
-@Feature("SignUp Api")
+@Epic("Account")
+@Feature("Login Functionality")
 public class LogInTest extends BaseTest {
+
+    @Severity(SeverityLevel.BLOCKER)
+    @Description("Using Sign up API and Cart API, product name associated with " +
+            "dedicated user should be seen when proceeding to checkout. " +
+            "This test will prove successful log in during checkout.")
+    @Story("Verify successful log in during checkout")
     @Test
     public void logInDuringCheckout() throws IOException, InterruptedException {
         String username = "demouser" +new FakerUtils().generateRandomNumber();
@@ -35,7 +41,9 @@ public class LogInTest extends BaseTest {
                 login(user);
         Assert.assertTrue(checkoutPage.getProductName().contains(product.getProductName()));
     }
-    @Story("Log in story")
+    @Severity(SeverityLevel.BLOCKER)
+    @Description("Using Sign up API, error message must be seen after logging in with invalid password.")
+    @Story("Failed to log in with invalid password")
     @Test
     public void  shouldNotLogInWithInvalidPassword(){
         String username = "demouser" + new FakerUtils().generateRandomNumber();
@@ -51,8 +59,8 @@ public class LogInTest extends BaseTest {
                 "Error: The password you entered for the username "+user.getUserName()+
                         " is incorrect. Lost your password?");
     }
-
-    @Story("Log in story")
+    @Severity(SeverityLevel.BLOCKER)
+    @Story("Failed to log in with non existing username")
     @Description("This will trigger error when log in with non existing username.")
     @Test(description = "should not log in with non existing username")
     public void  shouldNotLogInWithNonExistingUserName(){
