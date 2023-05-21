@@ -13,14 +13,17 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
-
+@Epic("Checkout")
+@Feature("Tax Rate")
 public class TaxRateTest extends BaseTest {
 
-    @Link("https://example.org")
+    /*@Link("https://qameta.io")
     @Link(name = "allure", type = "mylink")
     @TmsLink("12345")
-    @Issue("1234567")
-    @Description("This is description.")
+    @Issue("1234567")*/
+    @Severity(SeverityLevel.CRITICAL)
+    @Story("Validate computation of tax rate")
+    @Description("This test is to validate if the calculated tax associated with country based in US is equal to the expected tax")
     @Test(dataProvider = "getBillingAddressInUSRegion", dataProviderClass = MyDataProvider.class,
             description = "validate tax rate in US")
     public void validateTaxRateInUS(BillingAddress billingAddress) throws IOException, CsvValidationException {
