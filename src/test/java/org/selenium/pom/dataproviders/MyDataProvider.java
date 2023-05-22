@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class MyDataProvider extends Hooks {
+public class MyDataProvider{
 
 
     @DataProvider(parallel = true)
