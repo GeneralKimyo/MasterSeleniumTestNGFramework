@@ -1,6 +1,5 @@
 package org.selenium.pom.dataproviders;
 
-import org.selenium.pom.stepDefinitions.Hooks;
 import org.selenium.pom.objects.BillingAddress;
 import org.selenium.pom.objects.Coupon;
 import org.selenium.pom.objects.Product;
