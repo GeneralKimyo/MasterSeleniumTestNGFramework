@@ -27,9 +27,9 @@
             </argLine>
                 <parallel>methods</parallel>
                 <threadCount>5</threadCount>
-                <!--<suiteXmlFiles>
+                <suiteXmlFiles>
                     <suiteXmlFile>${suiteFile}</suiteXmlFile>
-                </suiteXmlFiles>-->
+                </suiteXmlFiles>
             </configuration>
         </plugin>
         <plugin>

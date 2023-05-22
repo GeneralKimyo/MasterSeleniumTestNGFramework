@@ -78,7 +78,7 @@ public class BaseTest {
     @Parameters("browser")
     @BeforeMethod
     public synchronized void startDriver(@Optional String browser){
-        browser = System.getProperty("browser");
+        //browser = System.getProperty("browser");
         if (browser==null) browser="FIREFOX";
         //setDriver2(new DriverManagerOriginal().initializeDriver(browser));
         //setDriver(DriverManagerFactory.getManager(DriverType.valueOf(browser)).createrDriver());
