@@ -25,7 +25,7 @@ public class TaxRateTest extends BaseTest {
     @Story("Validate computation of tax rate")
     @Description("This test is to validate if the calculated tax associated with country based in US is equal to the expected tax")
     @Test(dataProvider = "getBillingAddressInUSRegion", dataProviderClass = MyDataProvider.class,
-            description = "validate tax rate in US")
+            description = "Validate tax rate in US")
     public void validateTaxRateInUS(BillingAddress billingAddress) throws IOException, CsvValidationException {
         Product product = new Product(1215);
         CartApi cartApi = new CartApi();

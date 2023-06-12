@@ -16,6 +16,7 @@ import java.io.IOException;
 
 @Epic("Account")
 @Feature("Login Functionality")
+
 public class LogInTest extends BaseTest {
 
     @Severity(SeverityLevel.BLOCKER)
@@ -66,7 +67,6 @@ public class LogInTest extends BaseTest {
     public void  shouldNotLogInWithNonExistingUserName(){
         String username = "demouser" + new FakerUtils().generateRandomNumber();
         User user = new User(username,username + "@askomdch.com","demopwd");
-
         AccountPage accountPage =  new AccountPage(getDriver()).
                 load();
         Assert.assertEquals(accountPage.getLoginTitle(),"Login");

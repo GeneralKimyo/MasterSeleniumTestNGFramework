@@ -114,7 +114,7 @@ public class BaseTest {
         File srcFile = takesScreenshot.getScreenshotAs(OutputType.FILE);
         FileUtils.copyFile(srcFile,destFile);
     }
-    @Attachment
+    @Attachment(value="Image",type="image/png")
     public void takeScreenshotUsingAshot(File destFile){
         Screenshot screenshot = new AShot().
                 shootingStrategy(ShootingStrategies.viewportPasting(100)).
