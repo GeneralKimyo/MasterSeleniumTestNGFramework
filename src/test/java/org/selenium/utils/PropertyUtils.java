@@ -1,20 +1,17 @@
 package org.selenium.utils;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.Properties;
 
 public class PropertyUtils {
     public static Properties propertyLoader(String filePath){
         Properties properties= new Properties();
-        BufferedReader reader;
+        FileInputStream is;
         try {
-            reader= new BufferedReader(new FileReader(filePath));
+            is= new FileInputStream(filePath);
             try {
-                properties.load(reader);
-                reader.close();
+                properties.load(is);
+                is.close();
             }
             catch (IOException e) {
                 e.printStackTrace();

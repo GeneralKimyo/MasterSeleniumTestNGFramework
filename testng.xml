@@ -8,19 +8,19 @@
         </packages>
     </test>
 
-    <!--<test name="FIREFOX"  parallel="methods" thread-count="5" >
+    <test name="FIREFOX"  parallel="methods" thread-count="5" >
         <parameter name="browser" value="FIREFOX"></parameter>
         <packages>
             <package name="org.selenium.pom.tests" />
         </packages>
-    </test>-->
+    </test>
 
     <!--<test name="FIREFOX" parallel="methods" thread-count="5"  >
         <parameter name="browser" value="FIREFOX"></parameter>
         <classes>
-            <class name="org.selenium.pom.tests.ViewOrderTest">
+            <class name="org.selenium.pom.tests.BugDemoTest">
                 <methods>
-                    <include name="shouldBeAbleToViewOrdersFromAccountPage"/>
+                    <include name="bug"/>
                 </methods>
             </class>
         </classes>
